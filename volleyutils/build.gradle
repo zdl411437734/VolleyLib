@@ -25,5 +25,13 @@ dependencies {
     compile 'com.etongwl.volley:Volley:1.0.0'
 }
 
-apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintryM.gradle'
+//解决javadoc中文问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+//apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintryM.gradle'
 //apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintryM.gradle'
+apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/jcenterM.gradle'

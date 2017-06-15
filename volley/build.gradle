@@ -18,7 +18,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.3'
     }
 }
 apply plugin: 'com.android.library'
@@ -43,5 +43,13 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 
+//解决javadoc中文问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
 //apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintryM.gradle'
 //apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintryM.gradle'
+apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/jcenterM.gradle'
